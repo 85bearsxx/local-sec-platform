@@ -1,0 +1,13 @@
+# Cosign keys
+cosign.key
+
+# Optional (if you want to keep public private locally)
+# cosign.pub
+
+# General private keys
+*.pem
+*.key
+
+# Temp files
+*.log
+*.tmp
