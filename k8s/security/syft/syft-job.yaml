@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: syft-sbom
+  namespace: security
+spec:
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: syft
+          image: anchore/syft:latest
+          args:
+            - ubuntu:22.04
+            - -o
+            - table

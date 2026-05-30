@@ -1,0 +1,20 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: trivy-scan
+  namespace: security
+spec:
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: trivy
+          image: aquasec/trivy:latest
+          args:
+            - image
+            - ubuntu:22.04
+            - --no-progress
+          resources:
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
